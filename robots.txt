@@ -1,0 +1,4 @@
+User-agent: *
+Disallow:
+
+Sitemap: https://www.conseils-pour-mieux-dormir.com/sitemap.xml

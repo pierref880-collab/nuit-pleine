@@ -1,0 +1,118 @@
+/* Nuit Pleine : design B (bleu de nuit, jaune lune, Gloock + Schibsted Grotesk) */
+@font-face{font-family:"Gloock";src:url(polices/gloock.woff2) format("woff2");font-weight:400;font-display:swap}
+@font-face{font-family:"Schibsted Grotesk";src:url(polices/schibsted.woff2) format("woff2");font-weight:400 700;font-display:swap}
+@font-face{font-family:"Schibsted Grotesk";src:url(polices/schibsted-italique.woff2) format("woff2");font-weight:400;font-style:italic;font-display:swap}
+:root{--nuit:#0f1729;--ardoise:#1d2a44;--ardoise2:#2a3a5c;--lune:#f0c75e;--brume:#b7c1d6;--papier:#eef1f5;--blanc:#fff;--encre:#141b2b;--gris:#56607a;--filet:#d5dbe6;--lien:#1f6b78;
+--titre:"Gloock",Didot,"Bodoni MT",Georgia,serif;--texte:"Schibsted Grotesk",system-ui,-apple-system,"Segoe UI",sans-serif}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--papier);color:var(--encre);font:400 1.05rem/1.62 var(--texte)}
+img{max-width:100%;height:auto;display:block}
+a{color:var(--lien)}
+.w{max-width:1200px;margin:0 auto;padding-inline:clamp(16px,4vw,44px)}
+.etroit{max-width:740px}
+h1,h2,h3{font-family:var(--titre);font-weight:400;line-height:1.12;margin:0}
+/* en-tête sombre */
+.entete{background:var(--nuit);color:#fff}
+.entete .haut{display:flex;align-items:center;justify-content:space-between;gap:18px;padding-block:16px}
+.logo{color:#fff;text-decoration:none;display:flex;align-items:center;gap:12px}
+.logo .rond{width:30px;height:30px;border-radius:50%;background:var(--lune);box-shadow:inset -9px -3px 0 0 var(--ardoise2)}
+.logo b{font:400 1.7rem/1 var(--titre);letter-spacing:.01em}
+.entete nav ul{list-style:none;margin:0;padding:0;display:flex;gap:4px;flex-wrap:wrap}
+.entete nav a{color:var(--brume);text-decoration:none;font-size:.92rem;font-weight:600;padding:8px 12px;border-radius:6px}
+.entete nav a:hover,.entete nav a[aria-current]{color:var(--nuit);background:var(--lune)}
+/* accueil */
+.ciel{background:var(--nuit);color:#fff;padding-bottom:clamp(40px,7vw,90px)}
+.ciel .cadre{position:relative;border-radius:14px;overflow:hidden}
+.ciel .cadre img{width:100%;height:clamp(380px,58vw,620px);object-fit:cover;opacity:.78}
+.ciel .texte-une{position:absolute;inset:auto 0 0 0;padding:clamp(22px,5vw,56px);background:linear-gradient(to top,rgba(15,23,41,.92) 30%,rgba(15,23,41,0))}
+.ciel .surtitre{color:var(--lune);font-weight:700;letter-spacing:.16em;text-transform:uppercase;font-size:.78rem}
+.ciel h1{font-size:clamp(2.3rem,6vw,4.6rem);max-width:13em;margin:12px 0 14px}
+.ciel p{color:var(--brume);font-size:1.12rem;max-width:36em;margin:0}
+.ciel .actions{margin-top:22px;display:flex;gap:10px;flex-wrap:wrap}
+.btn{display:inline-block;background:var(--lune);color:var(--nuit);font-weight:700;text-decoration:none;padding:12px 22px;border-radius:8px}
+.btn.trait{background:transparent;color:#fff;box-shadow:inset 0 0 0 1.5px rgba(255,255,255,.55)}
+.bloc{padding-block:clamp(40px,6vw,72px)}
+.bloc.sombre{background:var(--ardoise);color:#fff}
+.sec-tete{display:flex;justify-content:space-between;align-items:end;gap:14px;flex-wrap:wrap;margin-bottom:30px}
+.sec-tete h2{font-size:clamp(1.8rem,3.6vw,2.7rem)}
+.sec-tete p{margin:0;color:var(--gris);max-width:38em}
+.sombre .sec-tete p{color:var(--brume)}
+.sec-tete a{font-weight:700}
+.sombre a{color:var(--lune)}
+.alaune{display:grid;grid-template-columns:1.4fr 1fr;gap:28px}
+.alaune .droite{display:grid;gap:28px}
+.carte{text-decoration:none;color:inherit;display:flex;flex-direction:column;background:var(--blanc);border-radius:12px;overflow:hidden;box-shadow:0 1px 0 var(--filet)}
+.carte .ph img{width:100%;aspect-ratio:16/10;object-fit:cover}
+.carte .corps{padding:18px 20px 22px;display:flex;flex-direction:column;gap:8px;flex:1}
+.carte .rub{font-size:.72rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--lien)}
+.carte h3{font-size:1.35rem}
+.carte p{margin:0;color:var(--gris);font-size:.95rem}
+.carte .duree{margin-top:auto;font-size:.8rem;color:var(--gris)}
+.carte.grande h3{font-size:clamp(1.6rem,3vw,2.2rem)}
+.carte.grande .ph{flex:1;min-height:260px}
+.carte.grande .ph img{aspect-ratio:auto;height:100%}
+.carte.grande .corps{flex:0}
+.carte:hover h3{text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:4px}
+.questions{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:0 48px;counter-reset:q}
+.questions li{border-top:1px solid var(--ardoise2);padding:18px 0;counter-increment:q;display:grid;grid-template-columns:52px 1fr;gap:6px}
+.questions li::before{content:counter(q,decimal-leading-zero);font:400 1.6rem/1 var(--titre);color:var(--lune)}
+.questions a{color:#fff;text-decoration:none;font:400 1.3rem/1.25 var(--titre)}
+.questions a:hover{color:var(--lune)}
+.questions span{grid-column:2;color:var(--brume);font-size:.92rem}
+.grille{display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
+.rubriques{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.rubriques a{display:block;text-decoration:none;color:var(--encre);background:var(--blanc);border-radius:12px;padding:22px;border-top:5px solid var(--lune)}
+.rubriques b{display:block;font:400 1.45rem/1.15 var(--titre);margin-bottom:8px}
+.rubriques span{color:var(--gris);font-size:.93rem}
+.fenetre{display:grid;grid-template-columns:1fr 1fr;gap:0;border-radius:14px;overflow:hidden;background:var(--nuit);color:#fff}
+.fenetre img{width:100%;height:100%;object-fit:cover;min-height:280px}
+.fenetre div{padding:clamp(24px,4vw,48px);align-self:center}
+.fenetre h2{font-size:clamp(1.6rem,3vw,2.3rem);margin-bottom:12px}
+.fenetre p{color:var(--brume);margin:0 0 18px}
+/* article */
+.b-tete-fond{background:var(--nuit);color:#fff;padding-bottom:110px}
+.fil{font-size:.85rem;color:var(--brume);margin:0;padding-top:26px}
+.fil a{color:var(--brume)}
+.b-tete{padding-block:18px 0}
+.b-tete .rub{font-size:.75rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--lune)}
+.b-tete h1{font-size:clamp(2.1rem,5vw,3.4rem);margin:12px 0 16px}
+.chapo{font-size:1.18rem;color:var(--brume);margin:0}
+.infos{font-size:.85rem;color:var(--brume);margin:16px 0 0}
+.b-photo{margin:-80px auto 36px}
+.b-photo img{width:100%;max-height:540px;object-fit:cover;border-radius:14px}
+.texte{font-size:1.07rem}
+.texte h2{font-size:1.9rem;margin:46px 0 14px}
+.texte h3{font-size:1.35rem;margin:30px 0 10px}
+.texte p{margin:0 0 18px}
+.texte ul,.texte ol{padding-left:1.3em;margin:0 0 20px}
+.texte li{margin-bottom:6px}
+.texte a{text-underline-offset:3px}
+.encadre{background:var(--ardoise);color:#fff;border-radius:12px;padding:20px 24px;margin:38px 0 10px}
+.encadre b{color:var(--lune);font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;display:block;margin-bottom:6px}
+.encadre p{margin:0;color:var(--brume)}
+.c-tete{background:var(--nuit);color:#fff;padding-block:10px 44px;margin-bottom:40px}
+.c-tete h1{font-size:clamp(2.2rem,5vw,3.4rem);margin:12px 0 10px}
+.c-tete .intro{color:var(--brume);font-size:1.1rem;max-width:42em;margin:0}
+.voisins{margin-top:44px;display:flex;flex-wrap:wrap;gap:10px 18px;align-items:center;font-weight:700}
+.voisins ul{list-style:none;display:flex;flex-wrap:wrap;gap:10px;margin:0;padding:0}
+.voisins li a{display:inline-block;padding:8px 14px;border-radius:8px;background:var(--blanc);text-decoration:none;color:var(--encre)}
+/* pied */
+.pied{background:var(--nuit);color:var(--brume);margin-top:76px;padding-block:50px 28px;font-size:.94rem}
+.pied a{color:#fff;text-decoration:none}
+.pied .g{display:grid;grid-template-columns:2fr 1fr 1fr;gap:32px}
+.pied h2{font:700 .75rem var(--texte);letter-spacing:.16em;text-transform:uppercase;color:var(--lune);margin:6px 0 12px}
+.pied ul{list-style:none;margin:0;padding:0}.pied li{margin-bottom:8px}
+.pied .bas{border-top:1px solid var(--ardoise2);margin-top:32px;padding-top:18px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;font-size:.84rem}
+@media (max-width:900px){
+ .alaune,.fenetre{grid-template-columns:1fr}
+ .grille,.rubriques{grid-template-columns:1fr 1fr}
+ .questions{grid-template-columns:1fr}
+ .pied .g{grid-template-columns:1fr 1fr}
+ .entete .haut{flex-direction:column;align-items:flex-start}
+}
+@media (max-width:600px){
+ .grille,.rubriques,.pied .g{grid-template-columns:1fr}
+ body{font-size:1rem}
+ .entete nav a{padding:6px 9px;font-size:.88rem}
+}
